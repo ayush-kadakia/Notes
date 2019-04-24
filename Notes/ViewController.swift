@@ -12,8 +12,19 @@ import FirebaseUI
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if Auth.auth().currentUser != nil {
+            print("user is signed in")
+            self.performSegue(withIdentifier: "goHome", sender: self)
+        }
+        
     }
 
     @IBAction func loginTapped(_ sender: UIButton) {
